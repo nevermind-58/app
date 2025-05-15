@@ -3,9 +3,16 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const auth = require('./middleware/auth');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)){
+    fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 // Middleware
 app.use(cors({
@@ -37,8 +44,7 @@ app.use('/api/comments', require('./routes/commRoutes'));
 app.use('/api/timeline', require('./routes/timelineRoutes'));
 app.use('/api/memorable', require('./routes/memorableRoutes'));
 app.use('/api/notes', require('./routes/noteRoutes'));
+app.use('/uploads', express.static(uploadsDir));
 
-// Add static directory for uploaded files
-app.use('/uploads', express.static('uploads'));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
