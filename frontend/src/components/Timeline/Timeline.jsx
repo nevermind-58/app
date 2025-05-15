@@ -777,6 +777,10 @@ const Timeline = () => {
       console.error(err);
     }
   };
+  const fixImageUrl = (url) => {
+  if (!url) return '';
+  return url.replace('http://localhost:5000', 'https://beb-backend.onrender.com');
+};
   
   // Open modal for adding new item
   const openAddModal = () => {
@@ -908,7 +912,7 @@ const Timeline = () => {
                 
                 {item.imageUrl && (
                   <ImagePreview onClick={() => openImageModal(item.imageUrl)}>
-                    <img src={item.imageUrl} alt={item.title} />
+                    <img src={fixImageUrl(item.imageUrl)} alt={item.title} />
                   </ImagePreview>
                 )}
                 
@@ -962,7 +966,7 @@ const Timeline = () => {
               
               {item.imageUrl && (
                 <ImagePreview onClick={() => openImageModal(item.imageUrl)}>
-                  <img src={item.imageUrl} alt={item.title} />
+                  <img src={fixImageUrl(item.imageUrl)} alt={item.title} />
                 </ImagePreview>
               )}
               
