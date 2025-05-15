@@ -70,7 +70,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     
     if (req.file) {
       // Add server URL to image path for frontend use
-      const serverUrl = process.env.SERVER_URL || 'http://localhost:5000';
+      const serverUrl = process.env.SERVER_URL || 'https://beb-backend.onrender.com';
       newEvent.imageUrl = `${serverUrl}/uploads/${req.file.filename}`;
     }
     
@@ -107,7 +107,7 @@ router.put('/:id', upload.single('image'), async (req, res) => {
       }
       
       // Add server URL to image path for frontend use
-      const serverUrl = process.env.SERVER_URL || 'http://localhost:5000';
+      const serverUrl = process.env.SERVER_URL || 'https://beb-backend.onrender.com';
       eventToUpdate.imageUrl = `${serverUrl}/uploads/${req.file.filename}`;
     }
     
