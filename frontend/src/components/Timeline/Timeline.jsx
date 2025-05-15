@@ -777,10 +777,12 @@ const Timeline = () => {
       console.error(err);
     }
   };
+  
+  // Function to fix image URLs
   const fixImageUrl = (url) => {
-  if (!url) return '';
-  return url.replace('http://localhost:5000', 'https://beb-backend.onrender.com');
-};
+    if (!url) return '';
+    return url.replace('http://localhost:5000', 'https://beb-backend.onrender.com');
+  };
   
   // Open modal for adding new item
   const openAddModal = () => {
@@ -815,9 +817,9 @@ const Timeline = () => {
     setSelectedItem(null);
   };
   
-  // Open full-size image
+  // Open full-size image - UPDATED TO FIX IMAGE URL
   const openImageModal = (imageUrl) => {
-    setSelectedImage(imageUrl);
+    setSelectedImage(fixImageUrl(imageUrl));
     setShowImageModal(true);
   };
   
@@ -1074,7 +1076,7 @@ const Timeline = () => {
                 {formData.imageUrl && (
                   <div style={{ marginTop: '10px' }}>
                     <img 
-                      src={formData.imageUrl} 
+                      src={formData.imageFile ? formData.imageUrl : fixImageUrl(formData.imageUrl)}
                       alt="Preview" 
                       style={{ 
                         maxWidth: '100%', 
@@ -1095,7 +1097,7 @@ const Timeline = () => {
         </ModalOverlay>
       )}
       
-      {/* Full Image Modal */}
+      {/* Full Image Modal - UPDATED TO FIX IMAGE URL */}
       {showImageModal && (
         <FullImageModal onClick={closeImageModal}>
           <img src={selectedImage} alt="Full Size" />

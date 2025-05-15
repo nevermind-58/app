@@ -264,7 +264,7 @@ const PromptMessage = styled.p`
 const Home = () => {
   const [message, setMessage] = useState("");
   const [greeting, setGreeting] = useState("");
-  const [emojis, setEmojis] = useState(["🦎", "😚", "🦆"]);
+  const [emojis, setEmojis] = useState(["🦎", "🗑️", "🦆"]);
   const [moodValue, setMoodValue] = useState(50); // middle position by default
   const [showHug, setShowHug] = useState(false);
   const [currentMoodResponse, setCurrentMoodResponse] = useState(""); // Store current mood response
@@ -345,7 +345,7 @@ const Home = () => {
 
   // Function to change emojis only (not the message)
   const changeEmoji = (index) => {
-    const emojiOptions = ["😏", "😎", "✨", "👀", "🥰", "🧍‍♀️", "😌", "🦎", "🔥"];
+    const emojiOptions = ["😏", "😎", "✨", "👀", "🥰", "🧍‍♀️", "😌", "🔥"];
     const randomEmoji = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
     
     const newEmojis = [...emojis];

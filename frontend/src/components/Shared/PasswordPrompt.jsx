@@ -253,7 +253,7 @@ const PasswordPrompt = () => {
       setShowFeedback(true);
       
       if (nextStage === 2) {
-        setFeedbackMessage("you got that right! so cute");
+        setFeedbackMessage("you got that right! yes u my dum cutie");
       } else if (nextStage === 4) {
         setFeedbackMessage("that's right! i'm the smartest");
       } else if (nextStage === 6) {
@@ -450,7 +450,7 @@ const PasswordPrompt = () => {
               background="#ffca3a"
               border="#ff9e00"
             >
-              You may now enter <Emoji>💖</Emoji>
+              You may now enter <Emoji>😏</Emoji>
             </ContinueButton>
           </FeedbackCard>
         )}
